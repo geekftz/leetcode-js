@@ -49,13 +49,12 @@
  * @return {number}
  */
 var getDecimalValue = function (head) {
-  let arr = [head.val];
+  let arr = [];
 
-  while (head.next) {
-    arr.push(head.next.val);
+  while (head) {
+    arr.push(head.val);
     head = head.next;
   }
-  console.log('🚀 ~ file: ez-getDecimalValue.js ~ line 67 ~ getDecimalValue ~ arr', arr);
 
   return arr.reverse().reduce((pre, cur, i) => (pre += cur * 2 ** i), 0);
 };
