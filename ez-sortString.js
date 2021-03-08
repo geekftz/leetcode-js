@@ -53,11 +53,33 @@ var sortString = function (s) {
   console.log('🚀 ~ file: ez-sortString.js ~ line 53 ~ sortString ~ arr', arr);
   let res = '';
 
-  for (let i = 0; i < arr.length; i++) {
-    const ele = arr[i];
+  while (arr.length) {
+    for (let i = 0; i < arr.length; i++) {
+      if (res === '') {
+        res += arr[0];
+      }
+
+      if (arr[i] > res.slice(-1)) {
+        res += arr[i];
+      }
+    }
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (i === arr.length - 1) {
+        res += arr[i];
+      }
+
+      if (arr[i] < res.slice(-1)) {
+        res += arr[i];
+      }
+    }
   }
+
+  return res;
 };
 
-s = 'ddddaaaabbbbcccc';
+// s = 'ddddaaaabbbbcccc';
+s = 'aaaabbbbcccc';
 
 var res = sortString(s);
+console.log('🚀 ~ file: ez-sortString.js ~ line 88 ~ res', res);
