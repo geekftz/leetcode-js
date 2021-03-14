@@ -1,3 +1,11 @@
+/*
+ * @Author: hackftz
+ * @Date: 2021-03-09 23:40:33
+ * @LastEditTime: 2021-03-10 23:37:29
+ * @LastEditors: hackftz
+ * @Description:
+ * @FilePath: /let-code/ez-mirrorTree.js
+ */
 // 剑指 Offer 27. 二叉树的镜像
 // 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
 

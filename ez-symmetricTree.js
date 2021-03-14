@@ -1,3 +1,11 @@
+/*
+ * @Author: hackftz
+ * @Date: 2021-02-24 01:07:29
+ * @LastEditTime: 2021-03-10 23:52:55
+ * @LastEditors: hackftz
+ * @Description:
+ * @FilePath: /let-code/ez-symmetricTree.js
+ */
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -31,7 +39,7 @@ function compare(p, q) {
     if (p.val === q.val) {
       return compare(p.left, q.right) && compare(p.right, q.left);
     } else {
-      return false
+      return false;
     }
   } else {
     return p === q;
@@ -41,4 +49,5 @@ function compare(p, q) {
 var a = new TreeNode(1, 2, 3);
 
 var res = isSymmetric(a);
+
 console.log('🚀 ~ file: ez-symmetricTree.js ~ line 42 ~ res', res);
