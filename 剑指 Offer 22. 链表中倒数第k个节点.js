@@ -1,7 +1,7 @@
 /*
  * @Author: hackftz
  * @Date: 2021-03-15 00:07:10
- * @LastEditTime: 2021-03-15 00:25:25
+ * @LastEditTime: 2021-03-20 11:28:15
  * @LastEditors: hackftz
  * @FilePath: /let-code/剑指 Offer 22. 链表中倒数第k个节点.js
  */
@@ -31,15 +31,15 @@
  */
 var getKthFromEnd = function (head, k) {
   let map = new Map();
-  let i = 1
+  let i = 1;
 
   while (head) {
-    map.set(i, head)
-    i++
-    head = head.next
+    map.set(i, head);
+    i++;
+    head = head.next;
   }
 
-  return map.get(i - k)
+  return map.get(i - k);
 };
 
 var head = {
@@ -54,7 +54,7 @@ var head = {
           val: 5,
           next: {
             val: 6,
-            next: null
+            next: null,
           },
         },
       },
@@ -62,5 +62,5 @@ var head = {
   },
 };
 
-var res = getKthFromEnd(head, 2)
-console.log('%c [ res ]', 'font-size:13px; background:pink; color:#bf2c9f;', res)
+var res = getKthFromEnd(head, 2);
+console.log('%c [ res ]', 'font-size:13px; background:pink; color:#bf2c9f;', res);
