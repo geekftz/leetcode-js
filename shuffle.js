@@ -9,12 +9,30 @@
 // 打乱数组顺序
 // 最完美的解决办法 -- Fisher–Yates shuffle 洗牌算法
 
+// function shuffle(arr) {
+//   let i = arr.length;
+//   while (i) {
+//     let j = Math.floor(Math.random() * i);
+//     console.log('%c%s', 'color: #ffcc00', j);
+//     i--;
+//     [arr[j], arr[i]] = [arr[i], arr[j]];
+//   }
+//   return arr;
+// }
+
 function shuffle(arr) {
-  let i = arr.length;
-  while (i) {
-    let j = Math.floor(Math.random() * i);
-    i--;
-    [arr[j], arr[i]] = [arr[i], arr[j]];
+  var length = arr.length,
+    temp,
+    random;
+  while (0 != length) {
+    console.log('%c length: %s', 'color: #99adcc', length);
+    random = Math.floor(Math.random() * length);
+    console.log('%c random: %s', 'color: #408059', random);
+    length--;
+    // swap
+    temp = arr[length];
+    arr[length] = arr[random];
+    arr[random] = temp;
   }
   return arr;
 }
