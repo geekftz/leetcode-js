@@ -6,7 +6,7 @@
  * @FilePath: /let-code/柯里化求和.js
  */
 
-// function sumWithES6(...args) {
+// function add(...args) {
 //   var _args = args;
 
 //   var _add = function (...moreArgs) {
@@ -23,32 +23,25 @@
 //   return _add;
 // }
 
-// var res = sumWithES6(1, 2, 3);
-// console.log('%c%s', 'color: #e57373', res);
-
-// var res1 = sumWithES6(3, 4, 3)(1);
-// console.log('%c%s', 'color: #bfffc8', res1);
-
-var sum = function (...args) {
+function add(...args) {
   let _args = args;
 
-  function reducer(arr) {
-    return arr.reduce((p, q) => p + q);
+  function _add(...moreArgs) {
+    _args = [...args, ...moreArgs];
+    return _add;
   }
 
-  function add(...moreArgs) {
-    _args = [..._args, ...moreArgs];
-
-    return add;
-  }
-
-  add.toString = add.valueOf = function () {
-    var all = reducer(_args);
-    return all;
+  _add.toString = function () {
+    return _args.reduce(function (a, b) {
+      return a + b;
+    });
   };
 
-  return add;
-};
+  return _add;
+}
 
-var res2 = sum(1, 2, 3)(4);
-console.log('%c%s', 'color: #1d3f73', res2);
+var res = add(1, 2, 3);
+console.log("%c%s", "color: #e57373", res);
+
+var res1 = add(3, 4, 3)(1);
+console.log("%c%s", "color: #bfffc8", res1);

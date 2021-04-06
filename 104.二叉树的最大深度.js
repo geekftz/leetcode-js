@@ -17,13 +17,41 @@
  * @param {TreeNode} root
  * @return {number}
  */
+// var maxDepth = function (root) {
+//   console.log(
+//     "🚀 ~ file: 104.二叉树的最大深度.js ~ line 21 ~ maxDepth ~ root",
+//     root
+//   );
+//   if (root === null || root === undefined) {
+//     return 0;
+//   }
+
+//   return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+// };
+
 var maxDepth = function (root) {
-  console.log('🚀 ~ file: 104.二叉树的最大深度.js ~ line 21 ~ maxDepth ~ root', root);
-  if (root === null || root === undefined) {
-    return 0;
+  let nodes = [root];
+  let count = 0;
+
+  while (nodes.length) {
+    let newNodes = [];
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      if (node.left) {
+        newNodes.push(node.left);
+      }
+
+      if (node.right) {
+        newNodes.push(node.right);
+      }
+    }
+
+    nodes = newNodes;
+
+    count++;
   }
 
-  return Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
+  return count;
 };
 
 var root = {
@@ -51,6 +79,6 @@ var root = {
 };
 
 var res = maxDepth(root);
-console.log('🚀 ~ file: 104.二叉树的最大深度.js ~ line 53 ~ res', res);
+console.log("🚀 ~ file: 104.二叉树的最大深度.js ~ line 53 ~ res", res);
 
 // @lc code=end

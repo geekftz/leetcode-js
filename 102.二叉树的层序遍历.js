@@ -46,37 +46,70 @@
 //   return res;
 // };
 
+// var levelOrder = function (root) {
+//   // 存储节点值的数组
+//   const ret = [];
+//   if (!root) {
+//     return ret;
+//   }
+
+//   // 需要进行bfs的队列
+//   const list = [root];
+
+//   while (list.length) {
+//     let len = list.length;
+//     const arr = [];
+
+//     while (len--) {
+//       const node = list.shift();
+//       arr.push(node.val);
+
+//       if (node.left) {
+//         list.push(node.left);
+//       }
+
+//       if (node.right) {
+//         list.push(node.right);
+//       }
+//     }
+
+//     ret.push(arr);
+//   }
+
+//   return ret;
+// };
+
 var levelOrder = function (root) {
-  // 存储节点值的数组
-  const ret = [];
-  if (!root) {
-    return ret;
+  if (!root || root.length === 0) {
+    return 0;
   }
+  let res = [[root.val]];
 
-  // 需要进行bfs的队列
-  const list = [root];
+  let nodes = [root];
 
-  while (list.length) {
-    let len = list.length;
-    const arr = [];
+  while (nodes.length > 0) {
+    let newNodes = [];
 
-    while (len--) {
-      const node = list.shift();
-      arr.push(node.val);
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
 
       if (node.left) {
-        list.push(node.left);
+        newNodes.push(node.left);
       }
 
       if (node.right) {
-        list.push(node.right);
+        newNodes.push(node.right);
       }
     }
 
-    ret.push(arr);
+    if (newNodes.length > 0) {
+      res.push(newNodes.map((item) => item.val));
+    }
+
+    nodes = newNodes;
   }
 
-  return ret;
+  return res;
 };
 
 var root = {
@@ -102,5 +135,5 @@ var root = {
 };
 
 var res = levelOrder(root);
-console.log('%c⧭', 'color: #bfffc8', res);
+console.log("%c⧭", "color: #bfffc8", res);
 // @lc code=end
