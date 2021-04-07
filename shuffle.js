@@ -25,11 +25,10 @@ function shuffle(arr) {
     temp,
     random;
   while (0 != length) {
-    console.log('%c length: %s', 'color: #99adcc', length);
     random = Math.floor(Math.random() * length);
-    console.log('%c random: %s', 'color: #408059', random);
     length--;
     // swap
+    console.log(length === random, 123);
     temp = arr[length];
     arr[length] = arr[random];
     arr[random] = temp;
@@ -41,4 +40,4 @@ var arr = [1, 2, 3, 4, 5, 6, 7];
 
 var res = shuffle(arr);
 
-console.log('%c⧭', 'color: #00e600', res);
+console.log("%c⧭", "color: #00e600", res);
