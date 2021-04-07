@@ -17,20 +17,38 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function (head) {
-  let s = new Set();
+// var hasCycle = function (head) {
+//   let s = new Set();
 
-  while (head) {
-    console.log("%c⧭", "color: #e50000", s);
-    if (s.has(head)) {
-      return true;
-    } else {
-      s.add(head);
-      head = head.next;
+//   while (head) {
+//     console.log("%c⧭", "color: #e50000", s);
+//     if (s.has(head)) {
+//       return true;
+//     } else {
+//       s.add(head);
+//       head = head.next;
+//     }
+//   }
+
+//   return false;
+// };
+
+var hasCycle = function (head) {
+  if (head === null || head.next === null) {
+    return false;
+  }
+  let slow = head;
+  let fast = head.next;
+
+  while (slow !== fast) {
+    if (fast === null || fast.next === null) {
+      return false;
     }
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  return false;
+  return true;
 };
 
 var head = {
@@ -44,7 +62,7 @@ var head = {
   },
 };
 
-head.next.next.next = head;
+// head.next.next.next = head;
 
 var res = hasCycle(head);
 console.log("%c%s", "color: #00a3cc", res);
