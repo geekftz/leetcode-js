@@ -1,13 +1,11 @@
 // 快速排序法
 
 var quickSort = function (arr) {
-  console.log("%c⧭", "color: #cc0088", arr);
   if (arr.length <= 1) {
     return arr;
   }
 
   var pivotIndex = Math.floor(arr.length / 2);
-
   var pivot = arr.splice(pivotIndex, 1)[0];
 
   var left = [];

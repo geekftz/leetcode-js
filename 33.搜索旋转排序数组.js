@@ -27,12 +27,13 @@ var search = function (nums, target) {
     return nums[0] === target ? 0 : -1;
   }
 
-  let l = 0,
-    r = len - 1;
+  let l = 0;
+  let r = len - 1;
 
   while (l <= r) {
     // 中间下标
     let mid = Math.floor((l + r) / 2);
+    console.log("%c%s", "color: #eeff00", mid);
 
     if (nums[mid] === target) {
       return mid;
@@ -60,8 +61,8 @@ var search = function (nums, target) {
 
 var nums = [4, 5, 6, 7, 0, 1, 2],
   target = 0;
-console.log('%c⧭', 'color: #731d6d', nums);
+console.log("%c⧭", "color: #731d6d", nums);
 
 var res = search(nums, target);
-console.log('%c%s', 'color: #006dcc', res);
+console.log("%c%s", "color: #006dcc", res);
 // @lc code=end
