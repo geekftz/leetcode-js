@@ -37,7 +37,11 @@ var compare = function (left, right) {
     return false;
   }
 
-  return left.val === right.val && compare(left.left, right.right) && compare(left.right, right.left);
+  return (
+    left.val === right.val &&
+    compare(left.left, right.right) &&
+    compare(left.right, right.left)
+  );
 };
 
 var root = {
@@ -64,5 +68,5 @@ var root = {
 };
 
 var res = isSymmetric(root);
-console.log('%c%s', 'color: #7f2200', res);
+console.log("%c%s", "color: #7f2200", res);
 // @lc code=end
