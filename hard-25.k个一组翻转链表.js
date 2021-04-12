@@ -106,7 +106,6 @@ var reverseKGroup = function (head, k) {
       count = 0;
 
       let [start1, end1] = reverseList(start, end);
-      console.log("%c⧭", "color: #7f2200", start1, end1);
     }
 
     head = head.next;

@@ -19,8 +19,8 @@
  * @param {number} c
  * @return {number}
  */
-var countGoodTriplets = function(arr, a, b, c) {
-  const abs = Math.abs
+var countGoodTriplets = function (arr, a, b, c) {
+  const abs = Math.abs;
   let count = 0;
 
   for (let i = 0; i < arr.length - 2; i++) {
@@ -33,14 +33,17 @@ var countGoodTriplets = function(arr, a, b, c) {
           continue;
         }
 
-        if (abs(arr[i] - arr[j]) <= a && abs(arr[j] - arr[k]) <= b && abs(arr[i] - arr[k]) <= c) {
-          count++
+        if (
+          abs(arr[i] - arr[j]) <= a &&
+          abs(arr[j] - arr[k]) <= b &&
+          abs(arr[i] - arr[k]) <= c
+        ) {
+          count++;
         }
       }
     }
   }
 
-  return count
+  return count;
 };
 // @lc code=end
-

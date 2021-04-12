@@ -17,8 +17,13 @@
  * @param {number} target
  * @return {number}
  */
+
+// target存在则返回下标，否则返回-1
+
+// 二分法
 var search = function (nums, target) {
   let len = nums.length;
+
   if (len === 0) {
     return -1;
   }
@@ -33,12 +38,12 @@ var search = function (nums, target) {
   while (l <= r) {
     // 中间下标
     let mid = Math.floor((l + r) / 2);
-    console.log("%c%s", "color: #eeff00", mid);
 
     if (nums[mid] === target) {
       return mid;
     }
 
+    // 左半边是递增排序
     if (nums[0] <= nums[mid]) {
       if (nums[0] <= target && target < nums[mid]) {
         r = mid - 1;
@@ -46,8 +51,7 @@ var search = function (nums, target) {
         l = mid + 1;
       }
     } else {
-      // 后半部分是有序数组
-
+      // 右半边是递增排序
       if (nums[mid] < target && target <= nums[len - 1]) {
         l = mid + 1;
       } else {
@@ -59,10 +63,9 @@ var search = function (nums, target) {
   return -1;
 };
 
-var nums = [4, 5, 6, 7, 0, 1, 2],
+var nums = [4, 5, 6, 7, 0, 1, 2, 3],
   target = 0;
-console.log("%c⧭", "color: #731d6d", nums);
 
 var res = search(nums, target);
-console.log("%c%s", "color: #006dcc", res);
+console.log("%c res = %s", "color: #006dcc", res);
 // @lc code=end
