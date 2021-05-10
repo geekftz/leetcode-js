@@ -50,7 +50,6 @@ var removeDuplicates = function(nums) {
     }
   }
 
-  console.log('%c⧭', 'color: #807160', nums);
   return j
 };
 
