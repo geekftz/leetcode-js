@@ -10,37 +10,27 @@
  * @return {string}
  */
 var freqAlphabets = function (s) {
-  var transformObj = getTransformObj();
-  let i = (j = s.length - 1);
-
-  while (i >= 0) {
-    i--;
-  }
-};
-
-var getTransformObj = function () {
-  var obj = {};
-  for (var i = 0; i < 26; i++) {
-    var utf16 = String.fromCharCode(97 + i);
-
-    if (i < 9) {
-      obj[utf16] = i + '';
-      obj[i + ''] = utf16;
+  var len = s.length;
+  var chars = 'abcdefghijklmnopqrstuvwxyz';
+  var i = 0;
+  while (i < s.length) {
+    if (s[i + 2] === '#') {
+      s = s.substring(0, i) + chars[s.substring(i, i + 2) - 1] + s.substring(i + 3, len);
+      i = i + 1;
     } else {
-      obj[utf16] = i + '#';
-      obj[i + '#'] = utf16;
+      s = s.substring(0, i) + chars[s.substring(i, i + 1) - 1] + s.substring(i + 1, len);
+
+      i = i + 1;
     }
   }
 
-  return obj;
+  return s;
 };
-
-var obj = getTransformObj();
-console.log('%c getTransformObj obj ⧭', 'color: #1d5673', obj);
 
 var s = '10#11#12';
 
 var res = freqAlphabets(s);
+// 输出："jkab"
 
 console.log('res: ', res);
 
