@@ -5,12 +5,15 @@ var quickSort = function (arr) {
     return arr;
   }
 
+  // 找到中间的数
   var pivotIndex = Math.floor(arr.length / 2);
   var pivot = arr.splice(pivotIndex, 1)[0];
 
+  // 左右数组
   var left = [];
   var right = [];
 
+  // 遍历每个元素 放进 左右数组
   for (let i = 0; i < arr.length; i++) {
     const ele = arr[i];
     if (ele < pivot) {
@@ -20,6 +23,7 @@ var quickSort = function (arr) {
     }
   }
 
+  // 递归重组数组
   return quickSort(left).concat([pivot, ...quickSort(right)]);
 };
 
@@ -27,4 +31,4 @@ var quickSort = function (arr) {
 var arr = [1, 24, 11, 45, 22, 66, 33, 50];
 
 var res = quickSort(arr);
-console.log("%c⧭", "color: #1d3f73", res);
+console.log('%c⧭', 'color: #1d3f73', res);
