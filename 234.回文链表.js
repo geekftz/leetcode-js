@@ -4,6 +4,16 @@
  * [234] 回文链表
  */
 
+function logList(root) {
+  const res = [];
+  while (root) {
+    res.push(root.val);
+    root = root.next;
+  }
+
+  console.log(res.toString());
+}
+
 // @lc code=start
 /**
  * Definition for singly-linked list.
@@ -38,6 +48,19 @@
 //   return true
 // };
 
+// var reverseHead = function (head) {
+//   let prev = null;
+//   let cur = head;
+
+//   while (cur) {
+//     const next = cur.next;
+//     cur.next = prev;
+//     prev = cur;
+//     cur = next;
+//   }
+
+//   return prev;
+// };
 var reverseHead = function (head) {
   let prev = null;
   let cur = head;
@@ -49,36 +72,69 @@ var reverseHead = function (head) {
     cur = next;
   }
 
-  return prev
-}
+  return prev;
+};
 
-var getFirstHalf = function(head) {
-  let slow = head
-  let fast = head
+// var getFirstHalf = function (head) {
+//   let slow = head;
+//   let fast = head;
+
+//   while (fast.next !== null && fast.next.next !== null) {
+//     slow = slow.next;
+//     fast = fast.next.next;
+//   }
+
+//   return slow;
+// };
+
+var getFirstHalf = function (head) {
+  let slow = head;
+  let fast = head;
 
   while (fast.next !== null && fast.next.next !== null) {
-    slow = slow.next
-    fast = fast.next.next
+    slow = slow.next;
+    fast = fast.next.next;
   }
 
-  return slow
-}
+  return slow;
+};
 
-var isPalindrome = function(head) {
-  let firstHalfEnd = getFirstHalf(head)
-  let head2 = reverseHead(firstHalfEnd.next)
+var isPalindrome = function (head) {
+  let firstHalfEnd = getFirstHalf(head);
+
+  let head2 = reverseHead(firstHalfEnd.next);
 
   while (head2) {
     if (head2.val !== head.val) {
-      return false
+      return false;
     }
 
-    head2 = head2.next
-    head = head.next
+    head2 = head2.next;
+    head = head.next;
   }
 
-  return true
-}
+  return true;
+};
+
+var isPalindrome = function (head) {
+  let left = head;
+
+  function traverse(right) {
+    if (right === null) {
+      return true;
+    }
+
+    let res = traverse(right.next);
+
+    let isSame = res && left.val === right.val;
+
+    left = left.next;
+
+    return isSame;
+  }
+
+  return traverse(head);
+};
 
 // var head = {
 //   val: 1,
@@ -104,16 +160,16 @@ var head = {
         val: 2,
         next: {
           val: 1,
-          next: null
-        }
-      }
-    }
-  }
-}
+          next: null,
+        },
+      },
+    },
+    // next: null,
+  },
+};
 
-var res = isPalindrome(head)
+var res = isPalindrome(head);
 
 // var res = getFirstHalf(head)
-console.log('%c⧭', 'color: #00e600', res);
+console.log("%c⧭", "color: #00e600", res);
 // @lc code=end
-

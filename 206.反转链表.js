@@ -16,31 +16,31 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function (head) {
-  if (head == null || head.next == null) {
-    return head;
-  }
-
-  debugger;
-  const newHead = reverseList(head.next);
-  head.next.next = head;
-  head.next = null;
-  return newHead;
-};
-
 // var reverseList = function (head) {
-//   let prev = null;
-//   let cur = head;
-
-//   while (cur) {
-//     const next = cur.next;
-//     cur.next = prev;
-//     prev = cur; // 最后一个
-//     cur = next;
+//   if (head == null || head.next == null) {
+//     return head;
 //   }
 
-//   return prev;
+//   const newHead = reverseList(head.next);
+//   head.next.next = head;
+//   head.next = null;
+//   return newHead;
 // };
+
+var reverseList = function (head) {
+  let prev = null;
+  let cur = head;
+
+  while (cur) {
+    const next = cur.next;
+
+    cur.next = prev;
+    prev = cur;
+    cur = next;
+  }
+
+  return prev;
+};
 
 var head = {
   val: 1,
