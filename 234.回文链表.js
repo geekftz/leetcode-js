@@ -96,6 +96,7 @@ var getFirstHalf = function (head) {
     fast = fast.next.next;
   }
 
+  console.log("🚀 --> getFirstHalf --> slow:", slow);
   return slow;
 };
 
@@ -116,25 +117,25 @@ var isPalindrome = function (head) {
   return true;
 };
 
-var isPalindrome = function (head) {
-  let left = head;
+// var isPalindrome = function (head) {
+//   let left = head;
 
-  function traverse(right) {
-    if (right === null) {
-      return true;
-    }
+//   function traverse(right) {
+//     if (right === null) {
+//       return true;
+//     }
 
-    let res = traverse(right.next);
+//     let res = traverse(right.next);
 
-    let isSame = res && left.val === right.val;
+//     let isSame = res && left.val === right.val;
 
-    left = left.next;
+//     left = left.next;
 
-    return isSame;
-  }
+//     return isSame;
+//   }
 
-  return traverse(head);
-};
+//   return traverse(head);
+// };
 
 // var head = {
 //   val: 1,
@@ -158,13 +159,13 @@ var head = {
       val: 3,
       next: {
         val: 2,
-        next: {
-          val: 1,
-          next: null,
-        },
+        // next: {
+        //   val: 1,
+        //   next: null,
+        // },
+        next: null,
       },
     },
-    // next: null,
   },
 };
 
