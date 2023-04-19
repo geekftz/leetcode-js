@@ -68,12 +68,27 @@ function ListNode(val, next) {
 //   return brr[0][0];
 // };
 
-var reverseList = function (head, tail) {
+// const myReverse = (head, tail) => {
+//   let prev = null;
+//   let cur = head;
+
+//   while (prev !== tail) {
+//     const next = cur.next;
+//     cur.next = prev;
+//     prev = cur;
+//     cur = next;
+//   }
+
+//   return [tail, head];
+// };
+
+const myReverse = (head, tail) => {
   let prev = tail.next;
   let cur = head;
 
-  while (cur !== tail) {
+  while (prev !== tail) {
     const next = cur.next;
+
     cur.next = prev;
     prev = cur;
     cur = next;
@@ -82,34 +97,49 @@ var reverseList = function (head, tail) {
   return [tail, head];
 };
 
-var reverseKGroup = function (head, k) {
-  if (k === 1) {
-    return head;
+function logList(root) {
+  const res = [];
+  while (root) {
+    res.push(root.val);
+    root = root.next;
   }
 
-  let h = new ListNode();
-  h.next = head;
+  console.log(res.toString());
+}
 
-  let count = 0;
-  let start = null;
-  let end = null;
+var reverseKGroup = function (head, k) {
+  const hair = new ListNode(0);
+  hair.next = head;
+
+  let prev = hair;
 
   while (head) {
-    if (count === 0) {
-      start = head;
+    let tail = prev;
+
+    // 查看剩余部分长度是否大于等于 k
+    for (let i = 0; i < k; ++i) {
+      tail = tail.next;
+
+      if (!tail) {
+        return hair.next;
+      }
     }
 
-    count++;
+    const next = tail.next;
 
-    if (count === k) {
-      end = head;
-      count = 0;
+    const [reverseHead, reverseTail] = myReverse(head, tail);
 
-      let [start1, end1] = reverseList(start, end);
-    }
+    console.log("#########");
 
-    head = head.next;
+    // 把子链表重新接回原链表
+    prev.next = reverseHead;
+    tail.next = next;
+    prev = reverseTail;
+
+    head = tail.next;
   }
+
+  return hair.next;
 };
 
 var head = {
@@ -151,6 +181,7 @@ var k = 2;
 // var k = 1;
 
 var res = reverseKGroup(head, k);
+logList(res);
 console.log("%c⧭", "color: #0088cc", res);
 
 // @lc code=end
