@@ -1,4 +1,5 @@
-// 冒泡算法 求最大值
+// 冒泡排序
+
 function bubble(arr) {
   for (let i = 0; i < arr.length; i++) {
     for (let j = 1; j < arr.length - i; j++) {
@@ -15,4 +16,4 @@ function bubble(arr) {
 var arr = [7, 3, 4, 5, 1, 2, 3];
 
 var res = bubble(arr);
-console.log('%c⧭', 'color: #735656', res);
+console.log("%c⧭", "color: #735656", res);

@@ -1,7 +1,4 @@
-var fetch = require('node-fetch');
-const co = require('co');
-
-const url = 'https://jsonplaceholder.typicode.com/todos/1';
+const url = "https://jsonplaceholder.typicode.com/todos/1";
 
 // fetch('https://jsonplaceholder.typicode.com/todos/1')
 //   .then((response) => response.json())
@@ -28,7 +25,24 @@ const url = 'https://jsonplaceholder.typicode.com/todos/1';
 //   });
 // }
 
+function sayHello() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve("hello");
+    }, 1000);
+  });
+}
+
+function sayBye() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve("bye");
+    }, 1000);
+  });
+}
+
 function run(generator) {
+  console.log("🚀 --> run --> generator:", generator);
   const iterator = generator();
   const iteration = iterator.next();
 
@@ -48,9 +62,8 @@ function run(generator) {
 }
 
 run(function* () {
-  const response = yield fetch(url);
-  const post = yield response.json();
-  const title = post.title;
-
-  console.log('title: ', title);
+  const response = yield sayHello();
+  console.log("🚀 --> run --> response:", response);
+  const post = yield sayBye();
+  console.log("🚀 --> run --> post:", post);
 });

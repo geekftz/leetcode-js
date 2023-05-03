@@ -1,8 +1,8 @@
 // 结构函数
 function compose(funcs) {
   return funcs.reduce((a, b) => {
-    console.log('%c a ⧭', 'color: #99614d', a);
-    console.log('%c b ⧭', 'color: #00736b', b);
+    // console.log("%c a ⧭", "color: #99614d", a);
+    // console.log("%c b ⧭", "color: #00736b", b);
 
     return function (...args) {
       // 每次累加 都把b函数 放到内部
@@ -13,22 +13,22 @@ function compose(funcs) {
 }
 
 const a = (num) => {
-  console.log('a => num: ', num);
+  console.log("a => num: ", num);
   return num;
 };
 
 const b = (num) => {
-  console.log('b => num: ', num);
+  console.log("b => num: ", num);
   return num;
 };
 
 const c = (num) => {
-  console.log('c => num: ', num);
+  console.log("c => num: ", num);
   return num;
 };
 
 const d = (num) => {
-  console.log('d => num: ', num);
+  console.log("d => num: ", num);
   return num;
 };
 
