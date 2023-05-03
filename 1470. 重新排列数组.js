@@ -8,13 +8,14 @@
  * @param {number} n
  * @return {number[]}
  */
- var shuffle = function(nums, n) {
-  return nums.map((v, i) => i % 2 === 0 ? nums[i / 2] : nums[n + Math.floor(i / 2)])
+var shuffle = function (nums, n) {
+  return nums.map((v, i) =>
+    i % 2 === 0 ? nums[i / 2] : nums[n + Math.floor(i / 2)]
+  );
 };
 
 console.time();
 var res = shuffle([2, 5, 1, 3, 4, 7], 3);
 console.timeEnd();
 
-
-console.log('🚀 ~ file: ez-shuffle.js ~ line 25 ~ res', res);
+console.log("🚀 ~ file: ez-shuffle.js ~ line 25 ~ res", res);

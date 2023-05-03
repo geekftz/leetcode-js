@@ -20,19 +20,8 @@
  * }
  */
 /**
- * @param {number[]} nums
- * @return {TreeNode}
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number[]}
  */
-var sortedArrayToBST = function (nums) {
-  if (nums.length === 0) {
-    return null;
-  }
-
-  const m = Math.floor(nums.length / 2);
-
-  return {
-    val: nums[m],
-    left: sortedArrayToBST(s.slice(0, m)),
-    right: sortedArrayToBST(s.slice(m + 1)),
-  };
-};
+var findMinHeightTrees = function (n, edges) {};

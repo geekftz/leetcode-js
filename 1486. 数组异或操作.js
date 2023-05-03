@@ -10,4 +10,13 @@
  * @param {number} start
  * @return {number}
  */
-var xorOperation = function (n, start) {};
+var xorOperation = function (n, start) {
+  let res = 0;
+
+  for (let i = 0; i < n; i++) {
+    let num = start + 2 * i;
+    res ^= num;
+  }
+
+  return res;
+};

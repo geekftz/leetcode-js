@@ -1,4 +1,4 @@
-// 相同的树
+// 100. 相同的树
 
 /*
  * Definition for a binary tree node.
@@ -37,4 +37,4 @@ var a = new TreeNode(1, 2, 1);
 var b = new TreeNode(1, 1, 2);
 
 var res = isSameTree(a, b);
-console.log('🚀 ~ file: isSameTree.js ~ line 40 ~ res', res);
+console.log("🚀 ~ file: isSameTree.js ~ line 40 ~ res", res);
