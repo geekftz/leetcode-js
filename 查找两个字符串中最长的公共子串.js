@@ -78,5 +78,5 @@ var find = function (str1, str2) {
   return str1.substr(lastIndex - max + 1, max);
 };
 
-var res = find('aaaX3333--', 'baa333cc3333xX3333');
-console.log('%c%s', 'color: #e5de73', res);
+var res = find("aaaX3333--", "baa333cc3333xX3333");
+console.log("%c%s", "color: #e5de73", res);

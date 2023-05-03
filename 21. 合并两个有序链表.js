@@ -36,7 +36,7 @@ var mergeTwoLists = function (l1, l2) {
 
   t.next = l1 === null ? l2 : l1;
 
-  return top;
+  return top.next;
 };
 
 var l1 = {
@@ -62,4 +62,4 @@ var l2 = {
 };
 
 var res = mergeTwoLists(l1, l2);
-console.log('%c⧭', 'color: #1d3f73', res);
+console.log("%c⧭", "color: #1d3f73", res);

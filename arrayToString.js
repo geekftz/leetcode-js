@@ -1,8 +1,8 @@
 function arrayToString() {
-  var res = '';
+  var res = "";
 
   this.forEach((item, index) => {
-    res += item + ',';
+    res += item + ",";
   });
 
   return res.slice(0, res.length - 1);
@@ -16,4 +16,4 @@ Array.prototype.arrayToString = arrayToString;
 var params = [1, 2, 3];
 
 var res = params.arrayToString();
-console.log('%c⧭', 'color: #1d5673', res);
+console.log("%c⧭", "color: #1d5673", res);

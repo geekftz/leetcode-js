@@ -31,4 +31,4 @@ var x = 1978959248;
 console.time();
 var res = mySqrt(x);
 console.timeEnd();
-console.log('%c%s', 'color: #cc7033', res);
+console.log("%c%s", "color: #cc7033", res);

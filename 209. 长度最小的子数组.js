@@ -6,9 +6,11 @@ var minSubArrayLen = function (target, nums) {
   let i = 0;
   let j = 0;
   let sum = 0;
-  while (j < nums.length) {   // 主旋律是扩张，找可行解
+  while (j < nums.length) {
+    // 主旋律是扩张，找可行解
     sum += nums[j];
-    while (sum >= s) {        // 间歇性收缩，优化可行解
+    while (sum >= target) {
+      // 间歇性收缩，优化可行解
       minLen = Math.min(minLen, j - i + 1);
       sum -= nums[i];
       i++;
@@ -30,4 +32,4 @@ var target = 11,
 //   nums = [1, 4, 4];
 
 var res = minSubArrayLen(target, nums);
-console.log('🚀 ~ file: md-minSubArrayLen.js ~ line 21 ~ res', res);
+console.log("🚀 ~ file: md-minSubArrayLen.js ~ line 21 ~ res", res);

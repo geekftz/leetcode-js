@@ -1,11 +1,3 @@
-/*
- * @Author: hackftz
- * @Date: 2021-03-20 23:39:08
- * @LastEditTime: 2021-03-20 23:59:30
- * @LastEditors: hackftz
- * @FilePath: /let-code/shuffle.js
- */
-
 // 打乱数组顺序
 // 最完美的解决办法 -- Fisher–Yates shuffle 洗牌算法
 
@@ -27,8 +19,6 @@ function shuffle(arr) {
   while (0 != length) {
     random = Math.floor(Math.random() * length);
     length--;
-    // swap
-    console.log(length === random, 123);
     temp = arr[length];
     arr[length] = arr[random];
     arr[random] = temp;
