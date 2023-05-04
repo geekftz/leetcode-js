@@ -31,14 +31,14 @@ function climbStairs(n) {
 
   let prev = 1;
   let cur = 2;
-  let curN = 3;
+  let i = 3;
 
-  while (curN <= n) {
+  while (i <= n) {
     let recordCur = cur;
     cur = prev + cur;
     prev = recordCur;
 
-    curN++;
+    i++;
   }
 
   return cur;
