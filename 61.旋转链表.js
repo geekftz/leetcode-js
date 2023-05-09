@@ -26,9 +26,6 @@ function ListNode(val, next) {
 
 // 反转链表 保存上个节点和当前节点
 var reverseList = function (head) {
-  let h = new ListNode();
-  h.next = head;
-
   let prev = null;
   let cur = head;
 

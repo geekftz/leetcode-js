@@ -22,30 +22,6 @@ function listToTree(arr) {
   return result;
 }
 
-function listToTree(arr) {
-  const result = [];
-  const map = {};
-
-  // 映射关系
-  arr.forEach((item) => {
-    map[item.id] = item;
-  });
-
-  for (let item of arr) {
-    if (map[item.pid]) {
-      if (!map[item.pid].children) {
-        map[item.pid].children = [];
-      }
-
-      map[item.pid].children.push(item);
-    } else {
-      result.push(item);
-    }
-  }
-
-  return result;
-}
-
 const arr = [
   { id: 1, pid: null, name: "1" },
   { id: 2, pid: "-1", name: "1" },
