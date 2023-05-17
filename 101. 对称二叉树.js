@@ -34,11 +34,6 @@ var isSymmetric = function (root) {
 };
 
 function compare(p, q) {
-  console.log(
-    "🚀 ~ file: ez-symmetricTree.js ~ line 29 ~ compare ~ p, q",
-    p,
-    q
-  );
   if (p instanceof TreeNode && q instanceof TreeNode) {
     if (p.val === q.val) {
       return compare(p.left, q.right) && compare(p.right, q.left);
