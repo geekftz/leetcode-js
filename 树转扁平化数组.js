@@ -1,18 +1,4 @@
 function treeToList(tree) {
-  // var queen = [];
-  // var out = [];
-  // queen = queen.concat(tree);
-  // while (queen.length) {
-  //   var first = queen.shift();
-  //   if (first.children) {
-  //     // 下一层节点推入
-  //     queen = queen.concat(first.children);
-  //     delete first["children"];
-  //   }
-  //   out.push(first);
-  // }
-  // return out;
-
   let arr = [];
   const res = [];
 
