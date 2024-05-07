@@ -48,15 +48,27 @@ var lengthOfLongestSubstring = function (s) {
   const occ = new Set();
   const n = s.length;
 
-  let rk = -1,
-    ans = 0;
+  let rk = 0;
+  ans = 0;
 
   for (let i = 0; i < n; ++i) {
-    console.log(i);
+    if (i !== 0) {
+      occ.delete(s.charAt(i - 1));
+    }
+
+    while (rk < n && !occ.has(s.charAt(rk))) {
+      occ.add(s.charAt(rk));
+      ++rk;
+    }
+
+    ans = Math.max(ans, rk - i);
   }
+
+  return ans;
 };
 
-const s = "au";
+// const s = "au";
+const s = "pwwkew";
 
 const res = lengthOfLongestSubstring(s);
 console.log("🚀 --> res:", res);
