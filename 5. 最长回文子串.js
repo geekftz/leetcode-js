@@ -41,14 +41,6 @@ const expandAroundCenter = (s, i, j) => {
     if (s.charAt(i) === s.charAt(j)) {
       i--;
       j++;
-      console.log(
-        "🚀 --> file:  5. 最长回文子串.js:66 --> expandAroundCenter --> i:",
-        i
-      );
-      console.log(
-        "🚀 --> file: 5. 最长回文子串.js:66 --> expandAroundCenter --> j:",
-        j
-      );
     } else {
       break;
     }
@@ -69,27 +61,27 @@ var longestPalindrome = function (s) {
 
   for (let i = 0; i < n; i++) {
     // 判读是奇回文串
-    console.log("====================================");
     const oddLen = expandAroundCenter(s, i, i);
-    console.log(
-      "🚀 --> file: 5. 最长回文子串.js:65 --> longestPalindrome --> oddLen:",
-      oddLen
-    );
+
     // 判断是偶回文串
-    // const evenLen = expandAroundCenter(s, i, i + 1);
+    const evenLen = expandAroundCenter(s, i, i + 1);
+    console.log(
+      "🚀 --> file: 5. 最长回文子串.js:67 --> longestPalindrome --> evenLen:",
+      evenLen
+    );
 
-    // const curMaxLen = Math.max(oddLen, evenLen);
+    const curMaxLen = Math.max(oddLen, evenLen);
 
-    // if (curMaxLen > maxLen) {
-    //   maxLen = curMaxLen;
-    //   begin = i;
-    // }
+    if (curMaxLen > maxLen) {
+      maxLen = curMaxLen;
+      begin = i - Math.floor((maxLen - 1) / 2);
+    }
   }
 
   return s.substring(begin, begin + maxLen);
 };
 
-var s = "babad";
+var s = "cbbd";
 
 const res = longestPalindrome(s);
 console.log("🚀 --> file: 5. 最长回文子串.js:11 --> res:", res);
