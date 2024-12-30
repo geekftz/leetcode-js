@@ -45,4 +45,103 @@
  * @param {number} numRows
  * @return {string}
  */
-var convert = function (s, numRows) {};
+// var convert = function (s, numRows) {
+//   if (numRows === 1) {
+//     return s
+//   }
+
+//   const res = [];
+//   let j = 0;
+//   let flag = true
+//   const sn = s.length
+
+//   for (let i = 0; i < sn; i++) {
+//     const si = s[i];
+
+//     if (!res[j]) {
+//       res[j] = []
+//     }
+
+//     res[j].push(si)
+
+//     j = flag ? (j + 1) : (j - 1)
+
+//     // 触底
+//     if (j === (numRows - 1)) {
+//       flag = false
+//     }
+
+//     if (j === 0) {
+//       flag = true
+//     }
+
+
+//   }
+
+
+//   let r = ''
+
+//   const rn = res.length
+
+//   for (let l = 0; l < rn; l++) {
+//     const rs = res[l].join('')
+
+//     r += rs
+//   }
+
+//   return r
+// };
+var convert = function (s, numRows) {
+  if (numRows === 1) {
+    return s
+  }
+
+  const res = [];
+  let j = 0;
+  let flag = true
+  const sn = s.length
+
+  for (let i = 0; i < sn; i++) {
+    const si = s[i];
+
+    if (!res[j]) {
+      res[j] = ''
+    }
+
+    res[j] += si
+
+    j = flag ? (j + 1) : (j - 1)
+
+    // 触底
+    if (j === (numRows - 1)) {
+      flag = false
+    }
+
+    if (j === 0) {
+      flag = true
+    }
+
+
+  }
+
+
+  let r = ''
+
+  const rn = res.length
+
+  for (let l = 0; l < rn; l++) {
+    const rs = res[l]
+    r += rs
+  }
+
+  return r
+};
+
+const result = convert('PAYPALISHIRING', 3)
+console.log('🚀 --> file: 6. Z 字形变换.js:111 --> result:', result);
+
+// const input = "jclvlazamucimicnewdoxjlfuemdadgkhufsuevjaxrnivcorhfrqqwnujquoyevslqprlyskrhunljgsoxleuyyfqutozqhmgyetyyepfaesjlkzivdevdllygazxjndjrxhrdyyddqnqdoayshwxshxzjywumbffamxdnxjqoyirmirernekxdlicjfqkkvnxuqmszcixmzkwsqoiwyfalpeuuugfrteomqinuqnirxelpstosaodqszkogrfbxtnpdbltqtmpyyeqtujuiokcowswqyxntndxqqsgkhvihbaawjugagloddktdjizynyoesuozryityjrifximkyrokktvusuiqiojfckyatryekijksvusokcyeavwufpctajxkixdbxjmitwcqqxfbbfhbadvfuaaujxfrwkvuuhepdifvfkyhsfiuleafgaapahjwtesplweqfmnmymtqreleinkopmfpvomqueghdmxkynwxzqnswaxgnjwdxbuusgkmnqwqdvadiwahoqakqzqgkmlhqfdimnwzgsplorownpgehioxhhfrvqalwdtksslykajataxgpdmyldxukdnftprrumbmemlrowrhwoqntclghlcrorzhgsbaecplpccdyvnxmdmfhaoplqizkhiqbjtimitdkxiksxjecwmkwabhslievqvwcqeqaztkydwrbgxdcjpalshgepkzhhv"
+
+// const numRows = 352
+
+// const result = convert(input, numRows)
