@@ -44,15 +44,15 @@ var threeSumClosest = function (nums, target) {
         return sum;
       }
 
-      if (diff < minDiff) {
-        minDiff = diff;
-        closestSum = sum;
-      }
-
       if (sum < target) {
         left++;
       } else {
         right--;
+      }
+
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestSum = sum;
       }
     }
   }
