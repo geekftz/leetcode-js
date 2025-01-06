@@ -49,27 +49,26 @@ var removeNthFromEnd = function (head, n) {
     return null
   }
 
-
-
+  // 构建一个前置节点
   var beforeHead = new ListNode(0, head);
 
   let left = beforeHead;
   let right = beforeHead;
 
+  // 快指针先平移n个位置
   while (n--) {
     right = right.next
   }
-
 
   while (right.next) {
     left = left.next
     right = right.next
   }
 
+  // left为前驱节点
   left.next = left.next.next
 
-
-  return head
+  return beforeHead
 
 }
 
