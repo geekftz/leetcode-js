@@ -32,50 +32,67 @@ function ListNode(val, next) {
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function (head) {
-  if (head === null) {
-    return null
-  }
+// var swapPairs = function (head) {
+//   if (head === null) {
+//     return null
+//   }
 
-  if (head.next === null) {
+//   if (head.next === null) {
+//     return head
+//   }
+
+//   let h = new ListNode(0, head)
+//   let anchor = h;
+
+//   let left = h.next;
+//   let right = left.next;
+
+//   while (anchor.next !== null) {
+//     // 记录
+//     let l = left;
+//     let r = right
+//     // console.log('🚀 --> file: 24. 两两交换链表中的节点.js:54 --> swapPairs --> right:', right);
+
+
+//     // 判断为奇数的情况
+//     if (right === null) {
+//       break
+//     }
+
+//     if (left.next.next === null && right.next === null) {
+//       left = left.next.next;
+
+//     } else {
+//       left = left.next.next;
+//       right = right.next.next
+//     }
+
+
+//     anchor.next = r
+//     r.next = l
+//     l.next = left
+//     anchor = l
+//   }
+
+//   return h.next
+// };
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var swapPairs = function (head) {
+  if (head === null || head.next === null) {
     return head
   }
 
-  let h = new ListNode(0, head)
-  let anchor = h;
+  const newHead = head.next;
+  head.next = swapPairs(newHead.next)
+  newHead.next = head
 
-  let left = h.next;
-  let right = left.next;
+  return newHead
+}
 
-  while (anchor.next !== null) {
-    // 记录
-    let l = left;
-    let r = right
-    // console.log('🚀 --> file: 24. 两两交换链表中的节点.js:54 --> swapPairs --> right:', right);
-
-
-    // 判断为奇数的情况
-    if (right === null) {
-      break
-    }
-
-    if (left.next.next === null && right.next === null) {
-      left = left.next.next;
-
-    } else {
-      left = left.next.next;
-      right = right.next.next
-    }
-
-
-    anchor.next = r
-    r.next = l
-    l.next = left
-    anchor = l
-  }
-
-  return h.next
-};
 
 // const input = null
 
