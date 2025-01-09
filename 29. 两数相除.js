@@ -6,7 +6,6 @@
 
 // 注意：假设我们的环境只能存储 32 位 有符号整数，其数值范围是 [−231,  231 − 1] 。本题中，如果商 严格大于 231 − 1 ，则返回 231 − 1 ；如果商 严格小于 -231 ，则返回 -231 。
 
-
 // 示例 1:
 
 // 输入: dividend = 10, divisor = 3
@@ -22,7 +21,6 @@
 
 // -231 <= dividend, divisor <= 231 - 1
 // divisor != 0
-
 
 /**
  * @param {number} dividend
@@ -76,17 +74,67 @@
 //   }
 // }
 
-
 var divide = function (dividend, divisor) {
-  let res = 0;
+  if (dividend === 0) {
+    return 0;
+  }
 
+  const MAX_VALUE = 2 ** 31 - 1,
+    MIN_VALUE = -(2 ** 31);
 
-}
+  // 考虑被除数为最小值的情况
+  if (dividend === MIN_VALUE) {
+    if (divisor === 1) {
+      return MIN_VALUE;
+    }
+    if (divisor === -1) {
+      return MAX_VALUE;
+    }
+  }
 
+  let r = 0;
 
+  let sign = (dividend ^ divisor) < 0 ? -1 : 1;
+  // console.log("🚀 --> file: 29. 两数相除.js:98 --> divide --> sign:", sign);
 
-const dividend = 13, divisor = 3;
+  dividend = Math.abs(dividend);
+  divisor = Math.abs(divisor);
+  const div = divisor;
+
+  function loop(res, dividend, divisor) {
+    if (dividend <= div) {
+      if (dividend < div) {
+        return res;
+      } else {
+        return res + 1;
+      }
+    }
+
+    let k = 1;
+
+    while (dividend - divisor > 0) {
+      dividend -= divisor;
+      divisor += divisor;
+
+      res += k;
+      k += k;
+    }
+
+    // console.log("🚀 --> file: 29. 两数相除.js:98 --> loop --> res:", res);
+
+    return loop(res, dividend, div);
+  }
+
+  r = loop(r, dividend, divisor);
+
+  return sign < 0 ? -r : r;
+};
+
+const dividend = 7,
+  divisor = -3;
 // const dividend = 2147483647, divisor = 2;
 
-const result = divide(dividend, divisor)
-console.log('🚀 --> file: 29. 两数相除.js:64 --> result:', result);// 
+console.time();
+const result = divide(dividend, divisor);
+console.timeEnd();
+console.log("🚀 --> file: 29. 两数相除.js:64 --> result:", result); //
