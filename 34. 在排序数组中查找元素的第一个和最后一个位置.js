@@ -66,7 +66,6 @@
 //   return res;
 // };
 
-
 var searchRange = function (nums, target) {
   const len = nums.length;
   let left = 0;
