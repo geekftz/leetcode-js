@@ -1,10 +1,8 @@
 // 给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
 
-// candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。 
+// candidates 中的 同一个 数字可以 无限制重复被选取 。如果至少一个数字的被选数量不同，则两种组合是不同的。
 
 // 对于给定的输入，保证和为 target 的不同组合数少于 150 个。
-
-
 
 // 示例 1：
 
@@ -23,7 +21,6 @@
 // 输入: candidates = [2], target = 1
 // 输出: []
 
-
 // 提示：
 
 // 1 <= candidates.length <= 30
@@ -31,12 +28,48 @@
 // candidates 的所有元素 互不相同
 // 1 <= target <= 40
 
-
 /**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
  */
 var combinationSum = function (candidates, target) {
+  function loop(path, candidates, target, res) {
+    const pathValue = path.reduce((acc, cur) => acc + cur, 0);
+    console.log(
+      "🚀 --> file: 39. 组合总和.js:39 --> loop --> pathValue:",
+      pathValue
+    );
 
+    if (pathValue === target) {
+      // console.log("🚀 --> file: 39. 组合总和.js:39 --> loop --> path:", path);
+      res.push(path.slice());
+      return;
+    }
+
+    for (let i = 0; i < candidates.length; i++) {
+      const c = candidates[i];
+      // console.log("🚀 --> file: 39. 组合总和.js:41 --> loop --> c:", c);
+
+      if (pathValue + c > target) {
+        continue;
+      }
+
+      path.push(c);
+      loop(path, candidates.slice(i), target, res);
+      path.pop();
+    }
+  }
+
+  const res = [];
+
+  loop([], candidates, target, res);
+
+  return res;
 };
+
+const candidates = [8, 7, 4, 3];
+const target = 11;
+
+const result = combinationSum(candidates, target);
+console.log("🚀 --> file: 39. 组合总和.js:74 --> result:", result);
